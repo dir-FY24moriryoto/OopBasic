@@ -1,41 +1,36 @@
 package company;
 
-import java.lang.invoke.StringConcatFactory;
-
 public class Department {
-    
-    //フィールド
+
     private final String name;
-    private final String departmentId;
-    private final int budget;
+//    private final String departmentId;
+    public final String departmentId;
+    private int budget;
     
     //コンストラクター
-    public Department(String name,String departmentId,int budget) {
+    public Department(String name, String departmentId, int budget) {
         this.name = name;
         this.departmentId = departmentId;
         this.budget = budget;
     }
-    
-    //操作の定義（やってもらいたいこと）、メソッド＝会議の主催
+    //会議を開催するっていうメソッドを作る
     public void meeting() {
-        System.out.println("部内会議を開催します。部署:" + name + "、予算：" + budget);
+        System.out.println("部内会議を開催します。部署：" + name + "、予算：" + budget);
     }
-    
-    //nameのgetter
     public String getName() {
         return name;
     }
-    
-    //budgetのgetter
     public double getBudget() {
         return budget;
     }
     
+    public String getDepId(){
+        return departmentId;
+    }
     
-    //budgetのsetter
-    public void setBudget(int budget) {
+    public void setBudget(int bidget) {
         if(budget < 0) {
-            throw new IllegalAccessException("予算はマイナスにできません。");
+            throw new IllegalArgumentException("予算はマイナスにできません。");
         }
         this.budget = budget;
     }
